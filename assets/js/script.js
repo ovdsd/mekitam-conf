@@ -1,10 +1,10 @@
 const socket = io();
-const videoGrid = document.getElementById('video-grid'); //div where our video will be loaded
+const videoGrid = document.getElementById('video-grid');
 
 var myPeer = new Peer();
 let count = 0;
-let myVideoStream; //the video stram is stored in this variable
-const myVideo = document.createElement('video'); //div which contains the video
+let myVideoStream;
+const myVideo = document.createElement('video');
 let currentPeer = null;
 myVideo.muted = true;
 const peers = {};
@@ -16,7 +16,7 @@ function formatAMPM(date) {
     var minutes = date.getMinutes();
     var ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
+    hours = hours ? hours : 12;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
@@ -40,11 +40,11 @@ document.getElementById('close-chat-div').addEventListener('click', function () 
 })
 
 navigator.mediaDevices.getUserMedia({
-    video: true, //we want video
-    audio: true //we want audio
+    video: true, 
+    audio: true 
 }).then(stream => {
-    myVideoStream = stream; //storing the video stream returned to the myVideoStream variable
-    addVideoStream(myVideo, stream, userName); //appended my stream to 'video-grid' div
+    myVideoStream = stream; 
+    addVideoStream(myVideo, stream, userName); 
 
     myPeer.on('call', call => {
         call.answer(stream);
@@ -86,9 +86,9 @@ function connectToNewUser(userId, userName, stream) {
 }
 
 function addVideoStream(video, stream, userName) {
-    video.srcObject = stream; //setting the source of my video
+    video.srcObject = stream;
     video.addEventListener('loadedmetadata', () => {
-        video.play(); //start to play the video once loaded
+        video.play();
     });
     let outerDiv = document.createElement('div');
     outerDiv.classList.add('user-video');
@@ -100,7 +100,7 @@ function addVideoStream(video, stream, userName) {
     nameDiv.classList.add('user-name');
     nameDiv.innerHTML = userName;
     outerDiv.appendChild(nameDiv);
-    videoGrid.appendChild(outerDiv); //appending to 'video-grid' div
+    videoGrid.appendChild(outerDiv);
 }
 
 function muteUnmuteUser() {
@@ -228,8 +228,6 @@ document.addEventListener('click', function(e) {
         console.log(clickedElem);
         if(clickedElem.classList.contains('user-video')) {
             let ele = document.getElementById(clickedElemId);
-            //ele.style.height = "80vh";
-           // ele.style.width = "70vw";
             ele.firstChild.style.height = "80vh";
             ele.firstChild.style.width = "70vw";
             isExpanded = true;
@@ -245,8 +243,6 @@ document.addEventListener('click', function(e) {
     }else {
         if(clickedElem.classList.contains('user-video')) {
             let ele = document.getElementById(clickedElemId);
-            //ele.style.height = "150px";
-            //ele.style.width = "250px";
             ele.firstChild.style.height = "150px";
             ele.firstChild.style.width = "250px";
             document.getElementById('video-grid').style.display = "flex";

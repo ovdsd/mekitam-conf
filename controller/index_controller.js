@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid'); //used to get unique room ids
+const { v4: uuidv4 } = require('uuid');
 
 module.exports.renderHome = function (req, res) {
     return res.render('home');
