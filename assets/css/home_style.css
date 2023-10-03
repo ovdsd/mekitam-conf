@@ -1,3 +1,8 @@
+@import url("../fonts/octin_sports_rg.ttf");
+*{
+    
+  font-family: "Poppins", sans-serif;
+}
 #header img{
     width: 200px;
 }
@@ -6,6 +11,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.btn,
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 #left-div {
@@ -29,7 +41,7 @@
 
 #start-meeting a {
     text-decoration: none;
-    color: white;
+    color: white;    
 }
 
 #new-meeting-root {
@@ -89,9 +101,11 @@
     cursor: pointer;
 }
 
-#start-meeting:hover {
-    background-color: #1b66ca;
+#start-meeting:hover  {
+    background-color: transparent;
+    color: #6bb7be;
     transition: background-color .5s ease-in-out;
+    border: 1px solid #096ae7 ;
 }
 
 #right-div {

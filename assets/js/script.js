@@ -21,10 +21,10 @@ function formatAMPM(date) {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
 }
-document.getElementById('time').innerText = formatAMPM(new Date) + " | Meeting";
+document.getElementById('time').innerText = formatAMPM(new Date) + " | Mekitam Meets";
 setInterval(setTime, 1000);
 function setTime() {
-    document.getElementById('time').innerText = formatAMPM(new Date) + " | Meeting";
+    document.getElementById('time').innerText = formatAMPM(new Date) + " | Mekitam Meets";
 }
 
 document.getElementById('chat-box-btn').addEventListener('click', function () {
