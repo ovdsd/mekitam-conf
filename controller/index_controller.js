@@ -4,6 +4,14 @@ module.exports.renderHome = function (req, res) {
     return res.render('home');
 }
 
+module.exports.signup = function (req, res) {
+    return res.render('signup');
+}
+
+module.exports.login = function (req, res) {
+    return res.render('login');
+}
+
 module.exports.createNewRoom = function (req, res) {
     return res.redirect(`/room/${uuidv4()}`);
 }

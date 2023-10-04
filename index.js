@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+const axios = require('axios');
 const { ExpressPeerServer } = require('peer');
 const PORT = process.env.PORT || 8000;
 
@@ -16,6 +17,14 @@ app.set('views', './views');
 app.get('/', (req, res) => {
     res.render('home');
 });
+
+axios.get('http:/localhost:8080/meeting/index')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
 
 app.use('/', require('./routes/index'));

@@ -1,5 +1,6 @@
 const socket = io();
 const videoGrid = document.getElementById('video-grid');
+const join = document.getElementById('link');
 
 var myPeer = new Peer();
 let count = 0;
@@ -10,6 +11,18 @@ myVideo.muted = true;
 const peers = {};
 const names = {};
 const userName = prompt("Please enter your name", "");
+
+document.getElementById('join-button').addEventListener('click', function(event) {
+    event.preventDefault();
+   
+    const linkInput = join.value;
+   
+    if (linkInput.includes('https://mekitam')) {
+       window.location.href = linkInput;
+    } else {
+       window.location.href = `/room/${linkInput}`;
+    }
+   });
 
 function formatAMPM(date) {
     var hours = date.getHours();
